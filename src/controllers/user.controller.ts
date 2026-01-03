@@ -95,7 +95,7 @@ const authenticate = async (req: Request, res: Response) => {
 				email: user.email,
 				role: user.role,
 				bio: user.bio,
-				...token
+				...token,
 			},
 		},
 	});
