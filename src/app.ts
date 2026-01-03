@@ -16,7 +16,6 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/thumbnails", express.static("thumbnails/"));
 app.use(
 	cors({
 		origin: function (origin: string, callback: Function) {
@@ -33,6 +32,7 @@ app.use(
 	})
 );
 
+app.use("/thumbnails", express.static("thumbnails/"));
 app.use("/posts", postRouter);
 app.use("/categories", categoryRouter);
 app.use("/comments", commentRouter);
