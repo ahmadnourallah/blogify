@@ -17,9 +17,8 @@ const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
 			if (err) next(err);
 
 			if (!user)
-				throw new ClientError(
-					{ user: "User is not authenticated" },
-					403
+				next(
+					new ClientError({ user: "User is not authenticated" }, 403)
 				);
 
 			req.user = user;
