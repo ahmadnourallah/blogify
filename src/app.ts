@@ -2,6 +2,7 @@ import {
 	serverErrorHandler,
 	clientErrorHandler,
 } from "./middleware/error.middleware";
+import { existsSync, mkdir } from "fs";
 import express from "express";
 import postRouter from "./routes/post.router";
 import categoryRouter from "./routes/category.router";
@@ -16,6 +17,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+if (!existsSync("thumbnails")) mkdir("thumbnails", () => null);
 
 app.use("/thumbnails", express.static("thumbnails/"));
 app.use("/posts", postRouter);
