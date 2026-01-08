@@ -1,9 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 import { ClientError } from "../middleware/error.middleware";
 import { validationResult, query, param, body } from "express-validator";
-import { PrismaClient } from "../../prisma/src/db/index";
+import { PrismaClient } from "~/prisma/generated/client";
+import { ADAPTER } from "../config/env.config";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({ adapter: ADAPTER });
 
 const validateResults = (req: Request, res: Response, next: NextFunction) => {
 	const errors = validationResult(req);

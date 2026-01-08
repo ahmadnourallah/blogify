@@ -1,11 +1,12 @@
 import { Request, Response } from "express";
-import { PrismaClient } from "../prisma/src/db";
+import { PrismaClient } from "~/prisma/generated/client";
 import { matchedData } from "express-validator";
 import { issueJWT } from "../utils/crypto";
 import { ClientError } from "../middleware/error.middleware";
+import { ADAPTER } from "../config/env.config";
 import bcryptjs from "bcryptjs";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({ adapter: ADAPTER });
 
 const getUsers = async (req: Request, res: Response) => {
 	const { start, end, search, order } = matchedData(req);

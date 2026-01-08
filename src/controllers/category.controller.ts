@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
-import { PrismaClient } from "../prisma/src/db";
+import { PrismaClient } from "~/prisma/generated/client";
 import { matchedData } from "express-validator";
+import { ADAPTER } from "../config/env.config";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({ adapter: ADAPTER });
 
 const getCategories = async (req: Request, res: Response) => {
 	const { start, end, search, orderBy, order } = matchedData(req);

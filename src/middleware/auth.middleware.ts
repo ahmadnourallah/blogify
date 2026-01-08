@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { ClientError } from "./error.middleware";
-import { User as PrismaUser } from "../prisma/src/db";
+import type { User as PrismaUser } from "~/prisma/generated/client";
 import passport from "passport";
 
 declare global {
