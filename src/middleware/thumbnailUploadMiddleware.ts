@@ -1,7 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
 import { ClientError } from "./error.middleware";
 import multer from "multer";
-import config from "../config/env.config";
 
 const thumbnailUploadMiddleware = (
 	req: Request,

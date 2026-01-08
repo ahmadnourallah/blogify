@@ -1,15 +1,15 @@
 import { ExtractJwt, Strategy } from "passport-jwt";
-import passport from "passport";
-import config from "./env.config";
+import { JWT_SECRET } from "./env.config";
 import { PrismaClient } from "../prisma/src/db/index";
 import type { JwtPayload } from "jsonwebtoken";
 import type { VerifiedCallback, StrategyOptions } from "passport-jwt";
+import passport from "passport";
 
 const prisma = new PrismaClient();
 
 const opts: StrategyOptions = {
 	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-	secretOrKey: config.JWT_SECRET,
+	secretOrKey: JWT_SECRET,
 };
 
 passport.use(

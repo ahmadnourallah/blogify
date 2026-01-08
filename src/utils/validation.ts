@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { ClientError } from "../middleware/error.middleware";
 import { validationResult, query, param, body } from "express-validator";
-import { PrismaClient } from "../prisma/src/db/index";
+import { PrismaClient } from "../../prisma/src/db/index";
 
 const prisma = new PrismaClient();
 
