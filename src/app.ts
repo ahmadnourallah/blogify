@@ -11,6 +11,7 @@ import userRouter from "./routes/user.router";
 import miscRouter from "./routes/misc.router";
 import cors from "cors";
 import jsonParser from "./middleware/jsonMiddleware";
+import multer from "multer";
 import "./config/passport.config";
 
 const app = express();
@@ -23,6 +24,7 @@ if (!existsSync("thumbnails")) mkdir("thumbnails", () => null);
 
 app.use("/thumbnails", express.static("thumbnails/"));
 app.use("/posts", postRouter);
+app.use(multer().none());
 app.use("/categories", categoryRouter);
 app.use("/comments", commentRouter);
 app.use("/users", userRouter);
