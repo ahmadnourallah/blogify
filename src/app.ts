@@ -10,13 +10,14 @@ import commentRouter from "./routes/comment.router";
 import userRouter from "./routes/user.router";
 import miscRouter from "./routes/misc.router";
 import cors from "cors";
+import jsonParser from "./middleware/jsonMiddleware";
 import "./config/passport.config";
 
 const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+app.use(jsonParser);
 
 if (!existsSync("thumbnails")) mkdir("thumbnails", () => null);
 
