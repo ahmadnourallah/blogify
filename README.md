@@ -4,7 +4,7 @@ A full-fledged blogging RESTFul API, built with TypeScript, Express.js, and Pris
 
 ## Demo
 
-Check out the live version deployed here
+Check out the live version deployed
 [here](http://blog-api-shef.onrender.com/docs).
 
 ## Description
