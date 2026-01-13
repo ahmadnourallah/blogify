@@ -1,11 +1,11 @@
-import swaggerJSDoc from "swagger-jsdoc";
 import { version } from "../../package.json";
+import swaggerJSDoc from "swagger-jsdoc";
 
 const options: swaggerJSDoc.Options = {
 	definition: {
 		openapi: "3.0.0",
 		info: {
-			title: "Blog API Docs",
+			title: "Blogify Docs",
 			version,
 		},
 		components: {
