@@ -4,6 +4,7 @@
 	"version": "1.0.0",
 	"main": "src/server.ts",
 	"scripts": {
+		"dev": "tsx src/server.ts",
 		"purge": "tsx dist/src/seed.js purge",
 		"seed": "tsx dist/src/seed.js seed",
 		"start": "tsx dist/src/server.js",
